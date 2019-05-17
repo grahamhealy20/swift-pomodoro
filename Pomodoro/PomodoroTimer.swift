@@ -19,7 +19,7 @@ class PomodoroTimer {
     var delegate: PomodoroTimerDelegate?
     
     var timer: Timer!
-    var seconds = 60
+    var seconds = 10
     
     init() {}
     
@@ -35,7 +35,7 @@ class PomodoroTimer {
     
     func reset() {
         // TODO Reset the timer to default state
-        seconds = 60
+        seconds = 10
     }
     
     @objc func timerTick() {

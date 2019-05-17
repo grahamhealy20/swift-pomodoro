@@ -12,11 +12,11 @@ class PomodoroStatusMenuController: NSObject, PomodoroTimerDelegate {
     
     // MARK: Nib Wiring
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+    let notificationManager: NotificationManager = NotificationManager()
     
     @IBOutlet weak var statusMenu: NSMenu!
     @IBOutlet weak var timerView: TimerView!
     var timerMenuItem: NSMenuItem!
-    
     var pomodoroTimer: PomodoroTimer!
     
     override func awakeFromNib() {
@@ -49,15 +49,34 @@ class PomodoroStatusMenuController: NSObject, PomodoroTimerDelegate {
     
     func updateItemTitle(seconds: Int) {
         timerView.update(timeRemaining: "\(seconds)")
-//        if let timeTitle = self.statusMenu.item(withTag: 1) {
-//            timeTitle.title = "\(seconds)"
-//        }
     }
     
     func timerDidEnd() {
         NSLog("Timer has ended")
+        notificationManager.notification()
     }
     
+//    func notification() {
+//        NSLog("Sending Notifiaction")
+//        let notification = NSUserNotification()
+//        notification.identifier = "1"
+//        notification.title = "Pomodoro"
+//        notification.subtitle = "Timer Ended"
+//        notification.informativeText = "Time to take a break!"
+//        notification.soundName = NSUserNotificationDefaultSoundName
+//
+//        //        notification.contentImage = NSImage(contentsOfURL: NSURL(string: "https://placehold.it/300")!)
+//
+//        // Manually display the notification
+//        let notificationCenter = NSUserNotificationCenter.default
+//        notificationCenter.deliver(notification)
+//    }
+//
+//    // MARK: NSUserNotificationCenterDelegate implementation
+//    func userNotificationCenter(_ center: NSUserNotificationCenter, shouldPresent notification: NSUserNotification) -> Bool {
+//        return true
+//    }
+//
     @IBAction func quitClicked(_ sender: NSMenuItem) {
         NSApplication.shared.terminate(self)
     }

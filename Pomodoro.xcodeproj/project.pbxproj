@@ -15,6 +15,7 @@
 		5FAD0B7D228F5A8A0036C81E /* PomodoroStatusMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAD0B7C228F5A8A0036C81E /* PomodoroStatusMenuController.swift */; };
 		5FAD0B7F228F5C3C0036C81E /* PomodoroTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAD0B7E228F5C3C0036C81E /* PomodoroTimer.swift */; };
 		5FAD0B81228F77280036C81E /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAD0B80228F77280036C81E /* TimerView.swift */; };
+		5FAD0B83228F7D060036C81E /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAD0B82228F7D060036C81E /* NotificationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		5FAD0B7C228F5A8A0036C81E /* PomodoroStatusMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroStatusMenuController.swift; sourceTree = "<group>"; };
 		5FAD0B7E228F5C3C0036C81E /* PomodoroTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroTimer.swift; sourceTree = "<group>"; };
 		5FAD0B80228F77280036C81E /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		5FAD0B82228F7D060036C81E /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				5F936590228F54A40060B7E5 /* Pomodoro.xcdatamodeld */,
 				5FAD0B7C228F5A8A0036C81E /* PomodoroStatusMenuController.swift */,
 				5FAD0B7E228F5C3C0036C81E /* PomodoroTimer.swift */,
+				5FAD0B82228F7D060036C81E /* NotificationManager.swift */,
 			);
 			path = Pomodoro;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 			files = (
 				5FAD0B81228F77280036C81E /* TimerView.swift in Sources */,
 				5FAD0B7F228F5C3C0036C81E /* PomodoroTimer.swift in Sources */,
+				5FAD0B83228F7D060036C81E /* NotificationManager.swift in Sources */,
 				5F936592228F54A40060B7E5 /* Pomodoro.xcdatamodeld in Sources */,
 				5FAD0B7D228F5A8A0036C81E /* PomodoroStatusMenuController.swift in Sources */,
 				5F93658F228F54A40060B7E5 /* AppDelegate.swift in Sources */,
