@@ -11,16 +11,21 @@ import Cocoa
 class PomodoroStatusMenuController: NSObject, PomodoroTimerDelegate {
     
     // MARK: Nib Wiring
-    @IBOutlet weak var statusMenu: NSMenu!
-    
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
     
+    @IBOutlet weak var statusMenu: NSMenu!
+    @IBOutlet weak var timerView: TimerView!
+    var timerMenuItem: NSMenuItem!
     
     var pomodoroTimer: PomodoroTimer!
     
     override func awakeFromNib() {
+        // Set main status bar title/icon
         statusItem.button?.title = "Pomodoro"
         statusItem.menu = statusMenu
+    
+        timerMenuItem = statusMenu.item(withTag: 1)
+        timerMenuItem.view = timerView
         
         pomodoroTimer = PomodoroTimer()
         pomodoroTimer.delegate = self
@@ -43,9 +48,10 @@ class PomodoroStatusMenuController: NSObject, PomodoroTimerDelegate {
     }
     
     func updateItemTitle(seconds: Int) {
-        if let timeTitle = self.statusMenu.item(withTag: 1) {
-            timeTitle.title = "\(seconds)"
-        }
+        timerView.update(timeRemaining: "\(seconds)")
+//        if let timeTitle = self.statusMenu.item(withTag: 1) {
+//            timeTitle.title = "\(seconds)"
+//        }
     }
     
     func timerDidEnd() {
