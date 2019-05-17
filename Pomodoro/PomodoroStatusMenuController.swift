@@ -8,18 +8,48 @@
 
 import Cocoa
 
-class PomodoroStatusMenuController: NSObject {
+class PomodoroStatusMenuController: NSObject, PomodoroTimerDelegate {
     
     // MARK: Nib Wiring
     @IBOutlet weak var statusMenu: NSMenu!
     
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
     
+    
+    var pomodoroTimer: PomodoroTimer!
+    
     override func awakeFromNib() {
         statusItem.button?.title = "Pomodoro"
         statusItem.menu = statusMenu
         
-        NSLog("Awakened from Nib")
+        pomodoroTimer = PomodoroTimer()
+        pomodoroTimer.delegate = self
+        
+        pomodoroTimer.start()
+    }
+    
+    func resetTimer() {
+        NSLog("Resetting timer")
+    }
+    
+    // MARK: Delegate implementation
+    func timerDidTick(seconds: Int) {
+        NSLog("Timer has ticked")
+        NSLog("Seconds remaining \(seconds)")
+        
+        // Update UI
+        updateItemTitle(seconds: seconds)
+
+    }
+    
+    func updateItemTitle(seconds: Int) {
+        if let timeTitle = self.statusMenu.item(withTag: 1) {
+            timeTitle.title = "\(seconds)"
+        }
+    }
+    
+    func timerDidEnd() {
+        NSLog("Timer has ended")
     }
     
     @IBAction func quitClicked(_ sender: NSMenuItem) {

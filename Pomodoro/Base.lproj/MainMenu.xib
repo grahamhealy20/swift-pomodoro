@@ -24,6 +24,10 @@
         </customObject>
         <menu id="Fqt-Ss-L1A">
             <items>
+                <menuItem title="Timer" tag="1" id="4Wk-Q7-nmH">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="1B8-OX-Gr5"/>
                 <menuItem title="Quit" id="CdA-5V-Zcg">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
