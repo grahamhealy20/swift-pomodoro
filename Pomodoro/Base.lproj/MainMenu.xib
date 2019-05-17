@@ -17,12 +17,17 @@
             </connections>
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
+        <customObject id="iTO-VH-Hl8" customClass="PomodoroStatusMenuController" customModule="Pomodoro" customModuleProvider="target">
+            <connections>
+                <outlet property="statusMenu" destination="Fqt-Ss-L1A" id="6Vk-Bk-8bg"/>
+            </connections>
+        </customObject>
         <menu id="Fqt-Ss-L1A">
             <items>
                 <menuItem title="Quit" id="CdA-5V-Zcg">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
-                        <action selector="quitClicked:" target="Voe-Tx-rLC" id="kn1-vm-qjk"/>
+                        <action selector="quitClicked:" target="iTO-VH-Hl8" id="iUK-nT-kIR"/>
                     </connections>
                 </menuItem>
             </items>
