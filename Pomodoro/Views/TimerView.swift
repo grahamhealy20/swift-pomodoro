@@ -14,12 +14,11 @@ class TimerView: NSView {
     
     func update(timeRemaining: Int) {
         // Convert seconds into hh:mm:ss
-        let (_, mins, seconds) = secondsToTime(seconds: timeRemaining)
+        let (_, minutes, seconds) = secondsToTime(seconds: timeRemaining)
         
         // We need to update the UI on the main thread
         DispatchQueue.main.async {
-            let stringLabel = "\(String(format: "%02d", mins)):\(String(format: "%02d", seconds))"
-            self.timerLabel.stringValue = stringLabel
+            self.timerLabel.stringValue = String(format: "%02d:%02d", minutes, seconds)
         }
     }
     
