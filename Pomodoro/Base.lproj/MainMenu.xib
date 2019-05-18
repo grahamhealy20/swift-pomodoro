@@ -30,6 +30,25 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="1B8-OX-Gr5"/>
+                <menuItem title="Start" id="XhY-Pm-cUR">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="startPressed:" target="iTO-VH-Hl8" id="ZIB-8Y-aon"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Pause" id="frF-7d-FIt">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="pausedPressed:" target="iTO-VH-Hl8" id="bOx-Fh-coc"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Reset" id="UXz-Y7-qDd">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="resetClicked:" target="iTO-VH-Hl8" id="uaU-xP-rvf"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="mER-5H-MHK"/>
                 <menuItem title="Quit" id="CdA-5V-Zcg">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
@@ -56,8 +75,10 @@
                         </textField>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="OSV-Ub-FeB" firstAttribute="centerY" secondItem="YPq-VR-mKF" secondAttribute="centerY" id="B9b-8K-6dg"/>
-                        <constraint firstItem="OSV-Ub-FeB" firstAttribute="centerX" secondItem="YPq-VR-mKF" secondAttribute="centerX" id="pjo-ZB-8qg"/>
+                        <constraint firstItem="OSV-Ub-FeB" firstAttribute="leading" secondItem="YPq-VR-mKF" secondAttribute="leading" id="5Bx-TK-4uH"/>
+                        <constraint firstItem="OSV-Ub-FeB" firstAttribute="top" secondItem="YPq-VR-mKF" secondAttribute="top" id="RDe-jy-p2n"/>
+                        <constraint firstAttribute="trailing" secondItem="OSV-Ub-FeB" secondAttribute="trailing" id="hRa-uA-7Wq"/>
+                        <constraint firstAttribute="bottom" secondItem="OSV-Ub-FeB" secondAttribute="bottom" id="p92-dN-62Y"/>
                     </constraints>
                     <visibilityPriorities>
                         <integer value="1000"/>
@@ -76,6 +97,7 @@
             <connections>
                 <outlet property="timerLabel" destination="OSV-Ub-FeB" id="iZA-fC-7Wr"/>
             </connections>
+            <point key="canvasLocation" x="138.5" y="181.5"/>
         </customView>
     </objects>
 </document>

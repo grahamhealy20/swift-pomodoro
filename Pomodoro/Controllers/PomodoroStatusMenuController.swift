@@ -31,8 +31,7 @@ class PomodoroStatusMenuController: NSObject, PomodoroTimerDelegate {
         pomodoroTimer = PomodoroTimer()
         pomodoroTimer.delegate = self
         
-        // TODO: Remove this, only for debugging until the buttons are added.
-        start()
+        timerView.update(timeRemaining: pomodoroTimer.seconds)
     }
     
     // MARK: Timer actions
@@ -49,6 +48,7 @@ class PomodoroStatusMenuController: NSObject, PomodoroTimerDelegate {
     func reset() {
         NSLog("Resetting timer")
         pomodoroTimer.reset()
+        timerView.update(timeRemaining: pomodoroTimer.seconds)
     }
     
     // MARK: Delegate implementation
@@ -65,7 +65,20 @@ class PomodoroStatusMenuController: NSObject, PomodoroTimerDelegate {
         notificationManager.notification()
     }
     
-    // MARK: Quit button handler
+    // MARK: button handlers
+    @IBAction func startPressed(_ sender: NSMenuItem) {
+        start()
+    }
+    
+    @IBAction func pausedPressed(_ sender: NSMenuItem) {
+        pause()
+    }
+    
+    
+    @IBAction func resetClicked(_ sender: NSMenuItem) {
+        reset()
+    }
+    
     @IBAction func quitClicked(_ sender: NSMenuItem) {
         NSApplication.shared.terminate(self)
     }
