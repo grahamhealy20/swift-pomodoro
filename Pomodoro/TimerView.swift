@@ -13,6 +13,7 @@ class TimerView: NSView {
     @IBOutlet weak var timerLabel: NSTextField!
     
     func update(timeRemaining: String) {
+        // TODO: Add converson of seconds to mins:seconds
         // We need to update the UI on the main thread
         DispatchQueue.main.async {
             self.timerLabel.stringValue = timeRemaining

@@ -16,14 +16,16 @@ protocol PomodoroTimerDelegate {
 
 
 class PomodoroTimer {
-    var delegate: PomodoroTimerDelegate?
     
+    var delegate: PomodoroTimerDelegate?
     var timer: Timer!
+    // TODO: Set this to default value externally
     var seconds = 10
     
     init() {}
     
     func start() {
+        // TODO: Do some validation to ensure the seconds variable is set
         // Start the timer and add it to the run loop for the current thread (so it runs async and wont block the UI).
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerTick), userInfo: nil, repeats: true)
         RunLoop.current.add(timer, forMode: RunLoop.Mode.common)
@@ -35,13 +37,13 @@ class PomodoroTimer {
     
     func reset() {
         // TODO Reset the timer to default state
+        timer.invalidate()
         seconds = 10
     }
     
     @objc func timerTick() {
         if seconds < 1 {
             timer.invalidate()
-        
             // TODO: Fire timerDidEnd delegate method
             reset()
             

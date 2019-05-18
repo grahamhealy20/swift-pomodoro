@@ -30,12 +30,30 @@ class PomodoroStatusMenuController: NSObject, PomodoroTimerDelegate {
         pomodoroTimer = PomodoroTimer()
         pomodoroTimer.delegate = self
         
+        // TODO: Remove this, only for debugging until the buttons are added.
+        start()
+    }
+    
+    // MARK: Timer actions
+    func start() {
+        NSLog("Starting timer")
         pomodoroTimer.start()
     }
     
-    func resetTimer() {
-        NSLog("Resetting timer")
+    func pause() {
+        NSLog("Pausing timer")
+        pomodoroTimer.pause()
     }
+    
+    func reset() {
+        NSLog("Resetting timer")
+        pomodoroTimer.reset()
+    }
+    
+    func updateTimerView(seconds: Int) {
+        timerView.update(timeRemaining: "\(seconds)")
+    }
+    
     
     // MARK: Delegate implementation
     func timerDidTick(seconds: Int) {
@@ -43,40 +61,14 @@ class PomodoroStatusMenuController: NSObject, PomodoroTimerDelegate {
         NSLog("Seconds remaining \(seconds)")
         
         // Update UI
-        updateItemTitle(seconds: seconds)
-
-    }
-    
-    func updateItemTitle(seconds: Int) {
-        timerView.update(timeRemaining: "\(seconds)")
+        updateTimerView(seconds: seconds)
     }
     
     func timerDidEnd() {
-        NSLog("Timer has ended")
+        NSLog("Timer has finished")
         notificationManager.notification()
     }
     
-//    func notification() {
-//        NSLog("Sending Notifiaction")
-//        let notification = NSUserNotification()
-//        notification.identifier = "1"
-//        notification.title = "Pomodoro"
-//        notification.subtitle = "Timer Ended"
-//        notification.informativeText = "Time to take a break!"
-//        notification.soundName = NSUserNotificationDefaultSoundName
-//
-//        //        notification.contentImage = NSImage(contentsOfURL: NSURL(string: "https://placehold.it/300")!)
-//
-//        // Manually display the notification
-//        let notificationCenter = NSUserNotificationCenter.default
-//        notificationCenter.deliver(notification)
-//    }
-//
-//    // MARK: NSUserNotificationCenterDelegate implementation
-//    func userNotificationCenter(_ center: NSUserNotificationCenter, shouldPresent notification: NSUserNotification) -> Bool {
-//        return true
-//    }
-//
     @IBAction func quitClicked(_ sender: NSMenuItem) {
         NSApplication.shared.terminate(self)
     }
