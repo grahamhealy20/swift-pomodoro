@@ -23,7 +23,8 @@ class PomodoroStatusMenuController: NSObject, PomodoroTimerDelegate {
         // Set main status bar title/icon
         statusItem.button?.title = "Pomodoro"
         statusItem.menu = statusMenu
-    
+        
+        // Get the timer menu item and assign a custom view to it instead of regular text.
         timerMenuItem = statusMenu.item(withTag: 1)
         timerMenuItem.view = timerView
         
@@ -50,18 +51,13 @@ class PomodoroStatusMenuController: NSObject, PomodoroTimerDelegate {
         pomodoroTimer.reset()
     }
     
-    func updateTimerView(seconds: Int) {
-        timerView.update(timeRemaining: "\(seconds)")
-    }
-    
-    
     // MARK: Delegate implementation
     func timerDidTick(seconds: Int) {
         NSLog("Timer has ticked")
         NSLog("Seconds remaining \(seconds)")
         
         // Update UI
-        updateTimerView(seconds: seconds)
+        timerView.update(timeRemaining: seconds)
     }
     
     func timerDidEnd() {
@@ -69,6 +65,7 @@ class PomodoroStatusMenuController: NSObject, PomodoroTimerDelegate {
         notificationManager.notification()
     }
     
+    // MARK: Quit button handler
     @IBAction func quitClicked(_ sender: NSMenuItem) {
         NSApplication.shared.terminate(self)
     }
