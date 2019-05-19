@@ -187,9 +187,11 @@
 				TargetAttributes = {
 					5F93658A228F54A40060B7E5 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 					5F93659D228F54A60060B7E5 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = 5F93658A228F54A40060B7E5;
 					};
 				};
@@ -408,7 +410,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.grahamhealy.Pomodoro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -427,7 +429,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.grahamhealy.Pomodoro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -447,7 +449,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.grahamhealy.PomodoroTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pomodoro.app/Contents/MacOS/Pomodoro";
 			};
 			name = Debug;
@@ -468,7 +470,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.grahamhealy.PomodoroTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pomodoro.app/Contents/MacOS/Pomodoro";
 			};
 			name = Release;
