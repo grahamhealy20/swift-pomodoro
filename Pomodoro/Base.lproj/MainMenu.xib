@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -20,6 +20,8 @@
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <customObject id="iTO-VH-Hl8" customClass="PomodoroStatusMenuController" customModule="Pomodoro" customModuleProvider="target">
             <connections>
+                <outlet property="pauseButton" destination="frF-7d-FIt" id="8Ln-EF-3E7"/>
+                <outlet property="startButton" destination="XhY-Pm-cUR" id="zYQ-ol-yrb"/>
                 <outlet property="statusMenu" destination="Fqt-Ss-L1A" id="6Vk-Bk-8bg"/>
                 <outlet property="timerView" destination="ACl-SB-zxx" id="wLK-gf-TDv"/>
             </connections>
