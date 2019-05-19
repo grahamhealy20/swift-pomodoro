@@ -112,6 +112,13 @@ class PomodoroStatusMenuController: NSObject, PomodoroTimerDelegate {
         reset()
     }
     
+    @IBAction func aboutClicked(_ sender: NSMenuItem) {
+        // About button clicked, open about window
+        let wc = AboutWindowController(windowNibName: "AboutWindow")
+        
+        wc.showWindow(self)
+    }
+    
     @IBAction func quitClicked(_ sender: NSMenuItem) {
         NSApplication.shared.terminate(self)
     }
