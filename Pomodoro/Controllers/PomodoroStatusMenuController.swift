@@ -9,13 +9,17 @@
 import Cocoa
 
 class PomodoroStatusMenuController: NSObject, PomodoroTimerDelegate {
-    
+
     // MARK: Nib Wiring
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+    
     let notificationManager: NotificationManager = NotificationManager()
     
     @IBOutlet weak var statusMenu: NSMenu!
     @IBOutlet weak var timerView: TimerView!
+    @IBOutlet weak var startButton: NSMenuItem!
+    @IBOutlet weak var pauseButton: NSMenuItem!
+    
     var timerMenuItem: NSMenuItem!
     var pomodoroTimer: PomodoroTimer!
     
@@ -31,7 +35,19 @@ class PomodoroStatusMenuController: NSObject, PomodoroTimerDelegate {
         pomodoroTimer = PomodoroTimer()
         pomodoroTimer.delegate = self
         
+        updateMenuItems()
+        
         timerView.update(timeRemaining: pomodoroTimer.seconds)
+    }
+    
+    func updateMenuItems() {
+        if pomodoroTimer.paused == true {
+            pauseButton.isHidden = true
+            startButton.isHidden = false
+        } else {
+            pauseButton.isHidden = false
+            startButton.isHidden = true
+        }
     }
     
     // MARK: Timer actions
@@ -52,6 +68,11 @@ class PomodoroStatusMenuController: NSObject, PomodoroTimerDelegate {
     }
     
     // MARK: Delegate implementation
+    func timerDidStart() {
+        NSLog("Timer has started")
+        updateMenuItems()
+    }
+    
     func timerDidTick(seconds: Int) {
         NSLog("Timer has ticked")
         NSLog("Seconds remaining \(seconds)")
@@ -60,9 +81,21 @@ class PomodoroStatusMenuController: NSObject, PomodoroTimerDelegate {
         timerView.update(timeRemaining: seconds)
     }
     
+    func timerDidPause() {
+        NSLog("Timer has been paused")
+        updateMenuItems()
+    }
+    
     func timerDidEnd() {
         NSLog("Timer has finished")
+        updateMenuItems()
         notificationManager.notification()
+    }
+    
+    func timerDidReset(seconds: Int) {
+        NSLog("Timer has been reset")
+        updateMenuItems()
+        timerView.update(timeRemaining: seconds)
     }
     
     // MARK: button handlers
