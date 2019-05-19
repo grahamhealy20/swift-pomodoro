@@ -61,8 +61,6 @@ class PomodoroTimer {
     @objc func timerTick() {
         if seconds < 1 {
             timer.invalidate()
-            // TODO: Fire timerDidEnd delegate method
-            reset()
             
             if let delegate = delegate{
                 delegate.timerDidEnd()
