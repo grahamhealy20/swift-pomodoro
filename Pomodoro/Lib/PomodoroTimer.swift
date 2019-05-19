@@ -50,8 +50,11 @@ class PomodoroTimer {
     
     func reset() {
         paused = true
+        
         // TODO Reset the timer to default state
-        timer.invalidate()
+        if (timer != nil) {
+            timer.invalidate()
+        }
         seconds = 10
         if let delegate = delegate{
             delegate.timerDidReset(seconds: seconds)

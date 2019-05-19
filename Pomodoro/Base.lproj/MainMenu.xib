@@ -51,6 +51,12 @@
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="mER-5H-MHK"/>
+                <menuItem title="About" id="wI4-5q-UHv">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="aboutClicked:" target="iTO-VH-Hl8" id="72T-EX-wF6"/>
+                    </connections>
+                </menuItem>
                 <menuItem title="Quit" id="CdA-5V-Zcg">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
@@ -61,45 +67,44 @@
             <point key="canvasLocation" x="139.5" y="-112"/>
         </menu>
         <customView id="ACl-SB-zxx" customClass="TimerView" customModule="Pomodoro" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="163" height="48"/>
+            <rect key="frame" x="0.0" y="0.0" width="135" height="65"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YPq-VR-mKF">
-                    <rect key="frame" x="0.0" y="0.0" width="163" height="48"/>
-                    <subviews>
-                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OSV-Ub-FeB">
-                            <rect key="frame" x="-2" y="0.0" width="167" height="48"/>
-                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" tag="2" title="Label" id="aVV-2i-J4L">
-                                <font key="font" metaFont="system" size="40"/>
-                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                            </textFieldCell>
-                        </textField>
-                    </subviews>
+                <box boxType="custom" borderType="none" cornerRadius="12" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="cy3-uI-C9n">
+                    <rect key="frame" x="8" y="8" width="120" height="50"/>
+                    <view key="contentView" id="IF8-pJ-cL4">
+                        <rect key="frame" x="0.0" y="0.0" width="120" height="50"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OSV-Ub-FeB">
+                                <rect key="frame" x="9" y="1" width="102" height="48"/>
+                                <textFieldCell key="cell" alignment="center" tag="2" title="Label" drawsBackground="YES" id="aVV-2i-J4L">
+                                    <font key="font" metaFont="system" size="40"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="OSV-Ub-FeB" firstAttribute="centerY" secondItem="IF8-pJ-cL4" secondAttribute="centerY" id="8Go-im-yqf"/>
+                            <constraint firstItem="OSV-Ub-FeB" firstAttribute="centerX" secondItem="IF8-pJ-cL4" secondAttribute="centerX" id="QNZ-C5-pop"/>
+                        </constraints>
+                    </view>
                     <constraints>
-                        <constraint firstItem="OSV-Ub-FeB" firstAttribute="leading" secondItem="YPq-VR-mKF" secondAttribute="leading" id="5Bx-TK-4uH"/>
-                        <constraint firstItem="OSV-Ub-FeB" firstAttribute="top" secondItem="YPq-VR-mKF" secondAttribute="top" id="RDe-jy-p2n"/>
-                        <constraint firstAttribute="trailing" secondItem="OSV-Ub-FeB" secondAttribute="trailing" id="hRa-uA-7Wq"/>
-                        <constraint firstAttribute="bottom" secondItem="OSV-Ub-FeB" secondAttribute="bottom" id="p92-dN-62Y"/>
+                        <constraint firstAttribute="width" constant="120" id="b6S-aJ-qpU"/>
+                        <constraint firstAttribute="height" constant="50" id="jJ6-ms-RSq"/>
                     </constraints>
-                    <visibilityPriorities>
-                        <integer value="1000"/>
-                    </visibilityPriorities>
-                    <customSpacing>
-                        <real value="3.4028234663852886e+38"/>
-                    </customSpacing>
-                </stackView>
+                    <color key="fillColor" red="0.91489648818969727" green="0.36665409803390503" blue="0.33404523134231567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </box>
             </subviews>
             <constraints>
-                <constraint firstItem="YPq-VR-mKF" firstAttribute="top" secondItem="ACl-SB-zxx" secondAttribute="top" id="Akp-HR-Jga"/>
-                <constraint firstItem="YPq-VR-mKF" firstAttribute="leading" secondItem="ACl-SB-zxx" secondAttribute="leading" id="mIp-cW-kSw"/>
-                <constraint firstAttribute="trailing" secondItem="YPq-VR-mKF" secondAttribute="trailing" id="p3b-Hf-eDm"/>
-                <constraint firstAttribute="bottom" secondItem="YPq-VR-mKF" secondAttribute="bottom" id="uKD-LW-xb7"/>
+                <constraint firstItem="cy3-uI-C9n" firstAttribute="centerY" secondItem="ACl-SB-zxx" secondAttribute="centerY" id="9lC-nG-Yao"/>
+                <constraint firstItem="cy3-uI-C9n" firstAttribute="centerX" secondItem="ACl-SB-zxx" secondAttribute="centerX" id="vHd-05-5vi"/>
             </constraints>
             <connections>
                 <outlet property="timerLabel" destination="OSV-Ub-FeB" id="iZA-fC-7Wr"/>
             </connections>
-            <point key="canvasLocation" x="138.5" y="181.5"/>
+            <point key="canvasLocation" x="114" y="195"/>
         </customView>
     </objects>
 </document>
